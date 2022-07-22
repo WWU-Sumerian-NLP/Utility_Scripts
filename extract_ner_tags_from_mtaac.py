@@ -8,6 +8,10 @@ import pandas as pd
     5. Open up the corresponding csv file 
     6. Append name to taglist 
 
+
+One minor bug exists - If a csv file has no entiries, it will write it on the headers
+
+This is easy to fix post-processing, but something to be aware of
 '''
 
 def load_and_organize_data(pathToLabeledNERData):
@@ -43,8 +47,8 @@ def main():
     for i in range(len(ner_tags)):
         print(ner_tags[i])
         df_w_tag = extract_ner_tags(df, ner_tags[i])
-        # write_to_existing_ner_lists(df_w_tag, ner_lists[i], True) #test
-        write_to_existing_ner_lists(df_w_tag, ner_lists[i], False) #real
+        write_to_existing_ner_lists(df_w_tag, ner_lists[i], True) #test
+        # write_to_existing_ner_lists(df_w_tag, ner_lists[i], False) #real
 
 
 main()
